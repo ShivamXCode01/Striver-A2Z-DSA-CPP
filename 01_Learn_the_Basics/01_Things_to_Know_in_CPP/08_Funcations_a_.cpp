@@ -1,4 +1,4 @@
-// This is an example of call by value funcation 
+// This is an example of function 
 
 #include <iostream>
 using namespace std;
