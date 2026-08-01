@@ -1,9 +1,9 @@
 // Pattern:- 17 We want to print
-//  A B C D E
-//  A B C D
-//  A B C
-//  A B
-//  A
+//     A    
+//    ABA   
+//   ABCBA  
+//  ABCDCBA 
+// ABCDEDCBA
 
 #include <iostream>
 using namespace std;
