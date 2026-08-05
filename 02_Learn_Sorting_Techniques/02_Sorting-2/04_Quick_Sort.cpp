@@ -1,0 +1,70 @@
+#include <iostream>
+using namespace std ;
+
+int Partition(int arr[], int s, int e){
+
+    int pivot = arr[s];
+
+    int count = 0;
+
+    for(int i = s + 1; i <= e; i++){
+        if(arr[i] <= pivot){
+            count++;
+        }
+    }
+
+    int pivotIndex = s + count;
+
+    swap(arr[pivotIndex], arr[s]);
+
+    int i = s;
+    int j = e;
+
+    while(i < pivotIndex && j > pivotIndex){
+
+        while(arr[i] <= pivot){
+            i++;
+        }
+
+        while(arr[j] > pivot){
+            j--;
+        }
+
+        if(i < pivotIndex && j > pivotIndex){
+            swap(arr[i++], arr[j--]);
+        }
+    }
+
+    return pivotIndex;
+}
+
+void QuickSort(int arr[], int s, int e){
+
+    if(s >= e){
+        return;
+    }
+
+    int p = Partition(arr, s, e);
+
+    QuickSort(arr, s, p - 1);
+    QuickSort(arr, p + 1, e);
+}
+
+
+void printArray(int arr[],int n){
+    for (int i = 0 ; i < n ; i++){
+        cout << " "<< arr[i];
+    }
+}
+
+
+int main (){
+    int arr[6]={5,87,3,1,8,4};
+    cout << "Array Elements before sorting : ";
+    printArray(arr,6);
+    cout << "\nArray Elements after sorting : ";
+    QuickSort(arr,0,5);
+    printArray(arr,6);
+
+
+}
